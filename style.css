@@ -25,6 +25,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Offset scroll anchor position to account for sticky header */
+#how-it-works,
+#faq,
+#contact {
+  scroll-margin-top: 100px;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -463,8 +470,9 @@ header.site-header {
 }
 
 .section-heading {
-  text-align: left;
+  text-align: center;
   max-width: 640px;
+  margin: 0 auto;
 }
 
 .section-heading .eyebrow {
@@ -958,4 +966,28 @@ header.site-header {
     justify-content: center;
     gap: 20px;
   }
+}
+
+/* ---------- Toast Notification ---------- */
+.toast {
+  position: fixed;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-ink);
+  color: var(--color-white);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 8px 30px rgba(42, 35, 67, 0.15);
+  z-index: 3000;
+  opacity: 0;
+  transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.toast.show {
+  bottom: 40px;
+  opacity: 1;
 }
