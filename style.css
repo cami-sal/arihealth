@@ -123,11 +123,12 @@ header.site-header{
 .hero-image{
   flex: 1 1 420px;
   max-width: 554px;
-  align-self: flex-end;
+  align-self: stretch;
+  display: flex;
 }
 .hero-image img{
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: var(--radius-lg);
   object-fit: cover;
 }
@@ -248,7 +249,7 @@ header.site-header{
 /* ---------- FAQ / photo section ---------- */
 .faq-section{
   background: var(--color-ink);
-  background-image: linear-gradient(rgba(20,15,40,0.35), rgba(20,15,40,0.55));
+  background-image: linear-gradient(rgba(20,15,40,0.45), rgba(20,15,40,0.65)), url('coloredit-nuevopack.png');
   background-size: cover;
   background-position: center;
   padding: var(--space-1600);
@@ -285,19 +286,24 @@ header.site-header{
   padding: 0;
 }
 .accordion-title .chev{
-  transition: transform 0.2s ease;
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
 }
 .accordion-item.open .accordion-title .chev{ transform: rotate(180deg); }
 .accordion-content{
   max-height: 0;
+  opacity: 0;
   overflow: hidden;
-  transition: max-height 0.25s ease;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.25s ease, 
+              margin-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 16px;
   line-height: 1.4;
   color: var(--color-white);
 }
-.accordion-item.open .accordion-content{ max-height: 200px; margin-top: 12px; }
+.accordion-item.open .accordion-content{ max-height: 200px; opacity: 1; margin-top: 12px; }
 
 /* ---------- Feature cards row (no numbers) ---------- */
 .features-row{
